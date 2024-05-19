@@ -177,6 +177,10 @@ alias branch='git branch'
 alias checkout='git checkout'
 alias clone='git clone'
 alias commit='git commit -m'
+alias qcc="\
+/usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME add -u && \
+/usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME commit -m 'no comment' && \
+/usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME push origin"
 alias fetch='git fetch'
 alias pull='git pull origin'
 alias push='git push origin'
