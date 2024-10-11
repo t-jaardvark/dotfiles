@@ -1,3 +1,3 @@
 ```
-git@github.com:t-jaardvark/dotfiles.git
+git remote add git@github.com:t-jaardvark/dotfiles.git
 ```
