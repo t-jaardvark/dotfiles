@@ -1,6 +1,6 @@
 My dotfiles
 
-
+# setup
 ```bash
 mkdir -p ~/git/
 git clone --bare git@github.com:t-jaardvark/dotfiles.git ~/git/dotfiles
