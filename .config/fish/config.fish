@@ -188,6 +188,7 @@ end
 
 abbr -a mf 'micro (fzf)'
 alias vf='nvim (fzf)'
+alias lsman='man -k . | fzf | awk "{print $1}" | xargs -f man'
 #fzf --fish | source
 ### ALIASES ###
 # navigation
