@@ -1,6 +1,11 @@
-My dotfiles
+My dotfiles, along with how I setup my boxes. 
 
-# setup (overwite current dotfiles
+### pre-setup
+- install nix package manager (to install dependencies)
+```bash
+sh <(curl -L https://nixos.org/nix/install) --daemon
+```
+### setup (overwite current dotfiles)
 ```bash
 mkdir -p ~/git/
 git clone --bare https://github.com/t-jaardvark/dotfiles.git ~/git/dotfiles
