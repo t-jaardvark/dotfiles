@@ -5,9 +5,10 @@ My dotfiles, along with how I setup my boxes.
 ```bash
 sh <(curl -L https://nixos.org/nix/install) --daemon
 nix-env -iA nixpkgs.eza
-nix-env -iA nixos.starship
-nix-env -iA nixos.neovim
-nix-env -iA nixos.micro
+nix-env -iA nixpkgs.starship
+nix-env -iA nixpkgs.neovim
+nix-env -iA nixpkgs.micro
+nix-env -iA nixpkgs.fish
 ```
 ### setup (overwite current dotfiles)
 ```bash
