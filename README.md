@@ -1,7 +1,7 @@
-My dotfiles, along with how I setup my boxes. 
+# My dotfiles + how I setup my boxes. 
 
 ### pre-setup
-- install nix package manager (to install dependencies)
+- install nix package manager & install dependencies
 ```bash
 sh <(curl -L https://nixos.org/nix/install) --daemon
 nix-env -iA nixpkgs.eza
