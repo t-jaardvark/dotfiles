@@ -3,7 +3,7 @@
 ### pre-setup
 - install nix package manager & install dependencies
 ```bash
-sh <(curl -L https://nixos.org/nix/install) --daemon
+sh <(curl -L https://nixos.org/nix/install) --daemon --yes
 nix-env -iA nixpkgs.eza
 nix-env -iA nixpkgs.starship
 nix-env -iA nixpkgs.neovim
