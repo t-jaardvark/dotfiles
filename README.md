@@ -12,6 +12,7 @@ nix-env -iA nixpkgs.fish
 ```
 ### setup (overwite current dotfiles)
 ```bash
+rm ~/.bashrc
 mkdir -p ~/git/
 git clone --bare https://github.com/t-jaardvark/dotfiles.git ~/git/dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME"
