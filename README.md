@@ -15,8 +15,7 @@ nix-env -iA nixpkgs.fish
 rm ~/.bashrc
 mkdir -p ~/git/
 git clone --bare https://github.com/t-jaardvark/dotfiles.git ~/git/dotfiles
-alias config="/usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME"
-/usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME checkout
+/usr/bin/env git --git-dir=$HOME/git/dotfiles --work-tree=$HOME checkout
 
 # Reload shell configuration based on the current shell
 if [ -n "$BASH_VERSION" ]; then
