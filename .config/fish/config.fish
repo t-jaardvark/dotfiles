@@ -183,6 +183,45 @@ function yt-sd
            $argv[1]
 end
 
+function yt-mp3
+    yt-dlp \
+        --extract-audio \
+        --audio-format mp3 \
+        --audio-quality 0 \
+        --embed-thumbnail \
+        --add-metadata \
+        --metadata-from-title "%(artist)s - %(title)s" \
+        --parse-metadata "title:%(title)s" \
+        --parse-metadata "artist:%(artist)s" \
+        --parse-metadata "album:%(album)s" \
+        --parse-metadata "date:%(release_date)s" \
+        --parse-metadata "description:%(description)s" \
+        --parse-metadata "genre:%(genre)s" \
+        --parse-metadata "comment:%(webpage_url)s" \
+        --output "%(title)s.%(ext)s" \
+        $argv
+end
+
+function yt-mp3-list
+    yt-dlp \
+        --extract-audio \
+        --audio-format mp3 \
+        --audio-quality 0 \
+        --embed-thumbnail \
+        --add-metadata \
+        --metadata-from-title "%(artist)s - %(title)s" \
+        --parse-metadata "title:%(title)s" \
+        --parse-metadata "artist:%(artist)s" \
+        --parse-metadata "album:%(album)s" \
+        --parse-metadata "date:%(release_date)s" \
+        --parse-metadata "description:%(description)s" \
+        --parse-metadata "genre:%(genre)s" \
+        --parse-metadata "comment:%(webpage_url)s" \
+        --output "%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" \
+        --yes-playlist \
+        --playlist-start 1 \
+        $argv
+end
 
 ### END OF FUNCTIONS ###
 
