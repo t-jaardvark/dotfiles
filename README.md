@@ -13,6 +13,7 @@ nix-env -iA nixpkgs.starship
 nix-env -iA nixpkgs.neovim
 nix-env -iA nixpkgs.micro
 nix-env -iA nixpkgs.fish
+nic-env -iA nixpkgs.tmux
 ```
 
 ### setup (overwite current dotfiles)
