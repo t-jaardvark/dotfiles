@@ -278,6 +278,3 @@ alias tb="nc termbin.com 9999"
 # misc
 alias weather='clear && curl wttr.in'
 alias ltfo='pkill -u $USER'
-
-# hi mom
-# bye mom
