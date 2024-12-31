@@ -270,7 +270,7 @@ alias tofish="sudo chsh $USER -s /bin/fish && echo 'Log out and log back in for 
 
 # bare git repo alias for managing my dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME"
-alias ep="micro $HOME/.bashrc && source $HOME/.bashrc && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME add -u && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME commit -m 'autocommit' && /usr/bin/git --git-dir=$HOME/git/dotfiles --set-upstream origin main --work-tree=$HOME push"
+alias ep="micro $HOME/.bashrc && source $HOME/.bashrc && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME add -u && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME commit -m 'autocommit' && /usr/bin/git --git-dir=$HOME/git/dotfiles main --work-tree=$HOME push"
 alias vol="pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -1"
 # termbin
 alias tb="nc termbin.com 9999"
