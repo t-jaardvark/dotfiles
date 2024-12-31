@@ -270,7 +270,7 @@ alias tofish="sudo chsh $USER -s /bin/fish && echo 'Log out and log back in for 
 
 # bare git repo alias for managing my dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME"
-alias ep="micro $HOME/.bashrc && source $HOME/.bashrc && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME add -u && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME commit -m 'autocommit' && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME push"
+alias ep="micro $HOME/.bashrc && source $HOME/.bashrc && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME add -u && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME commit -m 'autocommit' && /usr/bin/git --git-dir=$HOME/git/dotfiles --set-upstream origin main --work-tree=$HOME push"
 
 # termbin
 alias tb="nc termbin.com 9999"
@@ -279,3 +279,5 @@ alias tb="nc termbin.com 9999"
 alias weather='clear && curl wttr.in'
 alias ltfo='pkill -u $USER'
 
+# hi mom
+# bye mom
