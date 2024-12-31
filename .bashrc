@@ -1,19 +1,19 @@
 # ~/.bashrc
 
 if command -v apt >/dev/null 2>&1 && ! command -v eza >/dev/null 2>&1; then
-    sudo apt install eza
+    sudo apt install eza micro
 fi
 
 if command -v pacman >/dev/null 2>&1 && ! command -v eza >/dev/null 2>&1; then
-    sudo pacman -S eza
+    sudo pacman -S eza micro
 fi
 
 if command -v dnf >/dev/null 2>&1 && ! command -v eza >/dev/null 2>&1; then
-    sudo dnf install eza
+    sudo dnf install eza micro
 fi
 
 if command -v zypper >/dev/null 2>&1 && ! command -v eza >/dev/null 2>&1; then
-    sudo zypper install eza
+    sudo zypper install eza micro
 fi
 
 please() {
