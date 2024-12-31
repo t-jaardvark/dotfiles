@@ -1,10 +1,33 @@
-#  ____ _____
-# |  _ \_   _|  Derek Taylor (DistroTube)
-# | | | || |    http://www.youtube.com/c/DistroTube
-# | |_| || |    http://www.gitlab.com/dwt1/
-# |____/ |_|
-#
-# My bash config. Not much to see here; just some pretty standard stuff.
+# ~/.bashrc
+
+if command -v apt >/dev/null 2>&1 && ! command -v eza >/dev/null 2>&1; then
+    sudo apt install eza
+fi
+
+if command -v pacman >/dev/null 2>&1 && ! command -v eza >/dev/null 2>&1; then
+    sudo pacman -S eza
+fi
+
+if command -v dnf >/dev/null 2>&1 && ! command -v eza >/dev/null 2>&1; then
+    sudo dnf install eza
+fi
+
+if command -v zypper >/dev/null 2>&1 && ! command -v eza >/dev/null 2>&1; then
+    sudo zypper install eza
+fi
+
+please() {
+    FC=$(history -p !!)
+    if [ -z "$1" ]; then
+        sudo $FC
+    else
+        sudo "$@"
+    fi
+}
+
+fuck() {
+    please "$@"
+}
 
 ### EXPORT
 export TERM="xterm-256color"                      # getting proper colors
@@ -32,7 +55,8 @@ bind -m vi-insert 'Control-l: clear-screen'
 
 ### PROMPT
 # This is commented out if using starship prompt
-# PS1='[\u@\h \W]\$ '
+#PS1='[\u@\h \W]\$ '
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 ### PATH
 if [ -d "$HOME/.bin" ] ;
@@ -179,6 +203,7 @@ alias .5='cd ../../../../..'
 
 # vim and emacs
 alias vim="nvim"
+alias nano="micro"
 alias emacs="emacsclient -c -a 'emacs'" # GUI versions of Emacs
 alias em="/usr/bin/emacs -nw" # Terminal version of Emacs
 alias rem="killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon" # Kill Emacs and restart daemon..
@@ -196,7 +221,7 @@ alias l...='eza -al --color=always --group-directories-first ../../../' # ls on 
 alias pacsyu='sudo pacman -Syu'                  # update only standard pkgs
 alias pacsyyu='sudo pacman -Syyu'                # Refresh pkglist & update standard pkgs
 alias parsua='paru -Sua --noconfirm'             # update only AUR pkgs (paru)
-alias parsyu='paru -Syu --noconfirm'             # update standard pkgs and AUR pkgs (paru)
+alias parsyu='yay -Syu --noconfirm'             # update standard pkgs and AUR pkgs (paru)
 alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
 alias orphan='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages (DANGEROUS!)
 
@@ -249,18 +274,13 @@ alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Log out and log back in for ch
 alias tofish="sudo chsh $USER -s /bin/fish && echo 'Log out and log back in for change to take effect.'"
 
 # bare git repo alias for managing my dotfiles
-alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+alias config="/usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME"
+alias ep="micro $HOME/.bashrc && source $HOME/.bashrc && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME add -u && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME commit -m 'autocommit'"
 
 # termbin
 alias tb="nc termbin.com 9999"
 
-# the terminal rickroll
-alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+# misc
+alias weather='clear && curl wttr.in'
+alias ltfo='pkill -u $USER'
 
-### RANDOM COLOR SCRIPT ###
-# Get this script from my GitLab: gitlab.com/dwt1/shell-color-scripts
-# Or install it from the Arch User Repository: shell-color-scripts
-colorscript random
-
-### SETTING THE STARSHIP PROMPT ###
-eval "$(starship init bash)"
