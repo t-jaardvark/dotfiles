@@ -272,6 +272,7 @@ alias tofish="sudo chsh $USER -s /bin/fish && echo 'Log out and log back in for 
 alias config="/usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME"
 alias ep="micro $HOME/.bashrc && source $HOME/.bashrc && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME add -u && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME commit -m 'autocommit' && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME push"
 alias vol="pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -1"
+alias volv="echo \"Vol: $(pactl list sinks | grep '^[[:space:]]Volume:' | head -n1 | awk '{print $5}')\""
 # termbin
 alias tb="nc termbin.com 9999"
 
