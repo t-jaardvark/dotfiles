@@ -32,8 +32,6 @@ fuck() {
 ### EXPORT
 export TERM="xterm-256color"                      # getting proper colors
 export HISTCONTROL=ignoredups:erasedups           # no duplicate entries
-export EDITOR="emacsclient -t -a ''"              # $EDITOR use Emacs in terminal
-export VISUAL="emacsclient -c -a emacs"           # $VISUAL use Emacs in GUI mode
 
 ### SET MANPAGER
 ### Uncomment only one of these!
@@ -204,9 +202,6 @@ alias .5='cd ../../../../..'
 # vim and emacs
 alias vim="nvim"
 alias nano="micro"
-alias emacs="emacsclient -c -a 'emacs'" # GUI versions of Emacs
-alias em="/usr/bin/emacs -nw" # Terminal version of Emacs
-alias rem="killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon" # Kill Emacs and restart daemon..
 
 # Changing "ls" to "eza"
 alias ls='eza -al --color=always --group-directories-first' # my preferred listing
