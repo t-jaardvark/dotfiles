@@ -44,9 +44,9 @@ export MANPAGER="nvim +Man!"
 
 ### SET VI MODE ###
 # Comment this line out to enable default emacs-like bindings
-set -o vi
-bind -m vi-command 'Control-l: clear-screen'
-bind -m vi-insert 'Control-l: clear-screen'
+#set -o vi
+#bind -m vi-command 'Control-l: clear-screen'
+#bind -m vi-insert 'Control-l: clear-screen'
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
