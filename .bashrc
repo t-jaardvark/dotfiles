@@ -51,27 +51,16 @@ bind -m vi-insert 'Control-l: clear-screen'
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-### PROMPT
-# This is commented out if using starship prompt
-#PS1='[\u@\h \W]\$ '
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-
-### PATH
-if [ -d "$HOME/.bin" ] ;
-  then PATH="$HOME/.bin:$PATH"
-fi
-
-if [ -d "$HOME/.local/bin" ] ;
-  then PATH="$HOME/.local/bin:$PATH"
-fi
-
-if [ -d "$HOME/src/scripts" ] ;
-  then PATH="$HOME/git/scripts"
-fi
-
-if [ -d "/var/lib/flatpak/exports/bin/" ] ;
-  then PATH="/var/lib/flatpak/exports/bin/:$PATH"
-fi
+PATH="\
+/bin:\
+/sbin:\
+/usr/bin:\
+/usr/sbin:\
+/usr/local/bin:\
+$HOME/.bin:\
+$HOME/.local/bin:\
+"
 
 ### SETTING OTHER ENVIRONMENT VARIABLES
 if [ -z "$XDG_CONFIG_HOME" ] ; then
