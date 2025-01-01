@@ -65,20 +65,12 @@ if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [ -d "$HOME/.emacs.d/bin" ] ;
-  then PATH="$HOME/.emacs.d/bin:$PATH"
-fi
-
-if [ -d "$HOME/Applications" ] ;
-  then PATH="$HOME/Applications:$PATH"
+if [ -d "$HOME/src/scripts" ] ;
+  then PATH="$HOME/git/scripts"
 fi
 
 if [ -d "/var/lib/flatpak/exports/bin/" ] ;
   then PATH="/var/lib/flatpak/exports/bin/:$PATH"
-fi
-
-if [ -d "$HOME/.config/emacs/bin/" ] ;
-  then PATH="$HOME/.config/emacs/bin/:$PATH"
 fi
 
 ### SETTING OTHER ENVIRONMENT VARIABLES
