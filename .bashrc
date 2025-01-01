@@ -248,6 +248,7 @@ alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Log out and log back in for change to take effect.'"
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Log out and log back in for change to take effect.'"
 alias tofish="sudo chsh $USER -s /bin/fish && echo 'Log out and log back in for change to take effect.'"
+alias shistory="cat ~/.bash_history | grep "
 
 # bare git repo alias for managing my dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME"
