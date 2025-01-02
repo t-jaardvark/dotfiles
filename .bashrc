@@ -259,7 +259,7 @@ alias vol="pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -1"
 alias volv="echo \"Vol: $(pactl list sinks | grep '^[[:space:]]Volume:' | head -n1 | awk '{print $5}')\""
 # termbin
 alias tb="nc termbin.com 9999"
-
+alias clock="tty-clock -s -c"
 # misc
 alias weather='clear && curl wttr.in'
 alias ltfo='pkill -u $USER'
