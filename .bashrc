@@ -31,6 +31,7 @@ fuck() {
 
 ### EXPORT
 export TERM="xterm-256color"                      # getting proper colors
+export TERMINAL="alacritty"
 export HISTCONTROL=ignoredups:erasedups           # no duplicate entries
 
 ### SET MANPAGER
