@@ -59,9 +59,9 @@ PATH="\
 /usr/bin:\
 /usr/sbin:\
 /usr/local/bin:\
-$HOME/src/dwmblocks/sbscripts:\
 $HOME/.bin:\
 $HOME/.local/bin:\
+$HOME/src/dwmblocks/scripts:\
 "
 
 ### SETTING OTHER ENVIRONMENT VARIABLES
