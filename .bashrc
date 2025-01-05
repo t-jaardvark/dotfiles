@@ -257,9 +257,6 @@ alias dhi='history -d $((HISTCMD-1)) && history -d $((HISTCMD-1))' #strike last 
 # bare git repo alias for managing my dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME"
 alias ep="nvim $HOME/.bashrc && source $HOME/.bashrc && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME add -u && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME commit -m 'autocommit' && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME push"
-alias autostart="nvim $HOME/.local/share/dwm/autostart.sh
-alias autostart="nvim $HOME/.local/share/dwm/autostart-blocking.sh
-
 alias vol="pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -1"
 alias volv="echo \"Vol: $(pactl list sinks | grep '^[[:space:]]Volume:' | head -n1 | awk '{print $5}')\""
 # termbin
@@ -268,3 +265,12 @@ alias clock="tty-clock -s -c"
 # misc
 alias weather='clear && curl wttr.in'
 alias ltfo='pkill -u $USER'
+
+#dwm
+alias startup="nvim $HOME/.local/share/dwm/autostart.sh"
+alias dwmdeps="nvim $HOME/.local/share/dwm/autostart-blocking.sh"
+alias edwm="nvim $HOME/.local/src/dwm-flexipatch/config.h"
+alias pdwm="nvim $HOME/.local/src/dwm-flexipatch/patches.h"
+alias cdwm="pushd $HOME/.local/src/dwm-flexipatch && sudo make clean install; popd"
+alias edwmbl="nvim $HOME/.local/src/dwmblocks/config.h"
+alias cdwm="pushd $HOME/.local/src/dwmblocks && sudo make clean install; popd"
