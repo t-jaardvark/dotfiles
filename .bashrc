@@ -61,7 +61,7 @@ PATH="\
 /usr/local/bin:\
 $HOME/.bin:\
 $HOME/.local/bin:\
-$HOME/src/dwmblocks/scripts:\
+$HOME/.local/src/dwmblocks/scripts:\
 "
 
 ### SETTING OTHER ENVIRONMENT VARIABLES
