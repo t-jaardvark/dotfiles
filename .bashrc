@@ -61,6 +61,7 @@ PATH="\
 /usr/local/bin:\
 $HOME/.bin:\
 $HOME/.local/bin:\
+$HOME/.cargo/bin:\
 $HOME/.local/src/dwmblocks/scripts:\
 "
 
@@ -275,3 +276,4 @@ alias cdwm="pushd $HOME/.local/src/dwm-flexipatch && sudo make clean install; po
 alias edwmbl="nvim $HOME/.local/src/dwmblocks/config.h"
 alias cdwmbl="pushd $HOME/.local/src/dwmblocks && sudo make clean install; popd"
 alias cddwmbl="cd $HOME/.local/src/dwmblocks"
+. "$HOME/.cargo/env"
