@@ -29,6 +29,20 @@ fuck() {
     please "$@"
 }
 
+mpcplay() {
+    if [ -z "$1" ]; then
+        echo "Usage: mpcplay <folder>"
+        echo "Folder path should be relative to ~/Music/"
+        return 1
+    fi
+
+    mpc clear
+    mpc add "${1#~/Music/}"  # Remove ~/Music/ prefix if user included it
+    mpc random on
+    mpc play
+}
+
+
 ### EXPORT
 export TERM="xterm-256color"                      # getting proper colors
 export TERMINAL="/bin/alacritty"
