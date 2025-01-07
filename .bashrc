@@ -16,6 +16,8 @@ if command -v zypper >/dev/null 2>&1 && ! command -v eza >/dev/null 2>&1; then
     sudo zypper install eza micro
 fi
 
+### START FUNCTIONS ###
+
 please() {
     FC=$(history -p !!)
     if [ -z "$1" ]; then
@@ -42,6 +44,100 @@ mpcplay() {
     mpc play
 }
 
+tmr() {
+    if [ $# -eq 0 ]; then
+        echo "Usage: tmr <duration>"
+        return 1
+    fi
+
+    # Run termdown and capture its exit status
+    termdown "$@"
+    termdown_status=$?
+
+    # Only play the sound if termdown was successful
+    if [ $termdown_status -eq 0 ]; then
+        # Suppress all output from mpg123
+        mpg123 --loop -1 ~/.sounds/w10clock.mp3 > /dev/null 2>&1
+    else
+        echo "termdown failed or was interrupted"
+        return $termdown_status
+    fi
+}
+
+yt-fhd() {
+    if [ $# -eq 0 ]; then
+        echo "Usage: yt-fhd <YouTube URL>"
+        return 1
+    fi
+
+    yt-dlp -f 'bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080][ext=mp4]/best[ext=mp4]/best' \
+           -o '%(title)s.%(ext)s' \
+           "$1"
+}
+
+yt-hd() {
+    if [ $# -eq 0 ]; then
+        echo "Usage: yt-hd <YouTube URL>"
+        return 1
+    fi
+
+    yt-dlp -f 'bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720][ext=mp4]/best[ext=mp4]/best' \
+           -o '%(title)s.%(ext)s' \
+           "$1"
+}
+
+yt-sd() {
+    if [ $# -eq 0 ]; then
+        echo "Usage: yt-sd <YouTube URL>"
+        return 1
+    fi
+
+    yt-dlp -f 'bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]/best[height<=480][ext=mp4]/best[ext=mp4]/best' \
+           -o '%(title)s.%(ext)s' \
+           "$1"
+}
+
+yt-mp3() {
+    yt-dlp \
+        --extract-audio \
+        --audio-format mp3 \
+        --audio-quality 0 \
+        --embed-thumbnail \
+        --add-metadata \
+        --metadata-from-title "%(artist)s - %(title)s" \
+        --parse-metadata "title:%(title)s" \
+        --parse-metadata "artist:%(artist)s" \
+        --parse-metadata "album:%(album)s" \
+        --parse-metadata "date:%(release_date)s" \
+        --parse-metadata "description:%(description)s" \
+        --parse-metadata "genre:%(genre)s" \
+        --parse-metadata "comment:%(webpage_url)s" \
+        --output "%(title)s.%(ext)s" \
+        "$@"
+}
+
+yt-mp3-list() {
+    yt-dlp \
+        --extract-audio \
+        --audio-format mp3 \
+        --audio-quality 0 \
+        --embed-thumbnail \
+        --add-metadata \
+        --metadata-from-title "%(artist)s - %(title)s" \
+        --parse-metadata "title:%(title)s" \
+        --parse-metadata "artist:%(artist)s" \
+        --parse-metadata "album:%(album)s" \
+        --parse-metadata "date:%(release_date)s" \
+        --parse-metadata "description:%(description)s" \
+        --parse-metadata "genre:%(genre)s" \
+        --parse-metadata "comment:%(webpage_url)s" \
+        --output "%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" \
+        --yes-playlist \
+        --playlist-start 1 \
+        "$@"
+}
+
+### END FUNCTIONS ###
 
 ### EXPORT
 export TERM="xterm-256color"                      # getting proper colors
