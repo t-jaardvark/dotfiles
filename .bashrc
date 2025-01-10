@@ -1,5 +1,7 @@
 # ~/.bashrc
 
+source ~/.secrets.env
+
 if command -v apt >/dev/null 2>&1 && ! command -v eza >/dev/null 2>&1; then
     sudo apt install eza micro
 fi
