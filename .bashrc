@@ -391,4 +391,5 @@ alias cdwm="pushd $HOME/.local/src/dwm-flexipatch && sudo make clean install; po
 alias edwmbl="nvim $HOME/.local/src/dwmblocks/config.h"
 alias cdwmbl="pushd $HOME/.local/src/dwmblocks && sudo make clean install; popd"
 alias cddwmbl="cd $HOME/.local/src/dwmblocks"
+alias tarver='read -p "Version number: " ver && tar --zstd -cf "../$(basename $(pwd))-v${ver}.tar.zst" .'
 . "$HOME/.cargo/env"
