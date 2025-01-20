@@ -174,7 +174,7 @@ PATH="\
 $HOME/.bin:\
 $HOME/.local/bin:\
 $HOME/.cargo/bin:\
-$HOME/.local/src/dwmblocks/scripts:\
+$HOME/.local/src/tjwm/scripts:\
 "
 
 ### SETTING OTHER ENVIRONMENT VARIABLES
