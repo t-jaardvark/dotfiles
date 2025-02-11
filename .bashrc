@@ -150,6 +150,7 @@ export HISTCONTROL=ignoredups:erasedups           # no duplicate entries
 ### Uncomment only one of these!
 
 ### "nvim" as manpager
+export EDITOR="nvim"
 export MANPAGER="nvim +Man!"
 
 ### "less" as manpager
