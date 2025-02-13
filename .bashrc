@@ -1,6 +1,8 @@
-# ~/.bashrc
-
-source ~/.secrets.env
+#! ~/.bashrc
+# test
+if [ -f ~/.secrets.env ]; then
+    source ~/.secrets.env
+fi
 
 if command -v apt >/dev/null 2>&1 && ! command -v eza >/dev/null 2>&1; then
     sudo apt install eza micro
@@ -143,7 +145,7 @@ yt-mp3-list() {
 
 ### EXPORT
 export TERM="xterm-256color"                      # getting proper colors
-export TERMINAL="/bin/alacritty"
+export TERMINAL="/bin/kitty"
 export HISTCONTROL=ignoredups:erasedups           # no duplicate entries
 
 ### SET MANPAGER
@@ -370,8 +372,8 @@ alias sxhkd-reload="sudo killall sxhkd; sxhkd &"
 alias shi="history | grep "
 alias dhi='history -d $((HISTCMD-1)) && history -d $((HISTCMD-1))' #strike last line from ~/.bash_history
 # bare git repo alias for managing my dotfiles
-alias config="/usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME"
-alias configqc='/usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME add -u && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME commit -m "autocommit" && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME push'
+alias config="/usr/bin/git --git-dir=$HOME/.local/src/dotfiles --work-tree=$HOME"
+alias configqc='/usr/bin/git --git-dir=$HOME/.local/src/dotfiles --work-tree=$HOME add -u && /usr/bin/git --git-dir=$HOME/.local/src/dotfiles --work-tree=$HOME commit -m "autocommit" && /usr/bin/git --git-dir=$HOME/.local/src/dotfiles --work-tree=$HOME push'
 alias gitqc='git add -u && git commit -m "autocommit" && git push'
 
 alias ep="nvim $HOME/.bashrc && source $HOME/.bashrc && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME add -u && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME commit -m 'autocommit' && /usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME push"
@@ -394,4 +396,7 @@ alias edwmbl="nvim $HOME/.local/src/dwmblocks/config.h"
 alias cdwmbl="pushd $HOME/.local/src/dwmblocks && sudo make clean install; popd"
 alias cddwmbl="cd $HOME/.local/src/dwmblocks"
 alias tarver='read -p "Version number: " ver && tar --zstd -cf "../$(basename $(pwd))-v${ver}.tar.zst" .'
-. "$HOME/.cargo/env"
+
+if [ -f ~/.cargo/env ]; then
+    source "$HOME/.cargo/env"
+fi
