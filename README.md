@@ -1,21 +1,5 @@
 # My dotfiles + how I setup my boxes. 
 
-### pre-setup
-- install nix package manager
-```bash
-sh <(curl -L https://nixos.org/nix/install) --daemon --yes
-```
-- restart terminal and then install dependencies
-```bash
-nix-env -iA nixpkgs.git
-nix-env -iA nixpkgs.eza
-nix-env -iA nixpkgs.starship
-nix-env -iA nixpkgs.neovim
-nix-env -iA nixpkgs.micro
-nix-env -iA nixpkgs.fish
-nic-env -iA nixpkgs.tmux
-```
-
 ### setup (overwite current dotfiles)
 ```bash
 rm ~/.bashrc
